@@ -2,6 +2,13 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: firstpod
+  labels:
+    app: backend
+    env: dev
+    team: A
+  annotations:
+    description: "This is my first pod it runs a web server and a database"
+    createdBy: "chamod"
 spec:
   containers:
   - name: web
