@@ -5,7 +5,12 @@ metadata:
   labels:
     app: httpd
 spec:
-  replicas: 2
+  replicas: 10
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+      maxUnavailable: 4
   selector:
     matchLabels:
       app: httpd
@@ -16,6 +21,6 @@ spec:
     spec:
       containers:
         - name: myhttpd
-          image: httpd 
+          image: httpd:2.5
           ports:
             - containerPort: 80    
